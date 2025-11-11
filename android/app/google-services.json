@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "955973288799",
+    "project_id": "dev-da-app",
+    "storage_bucket": "dev-da-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955973288799:android:b45ead7987f0fc7554ecea",
+        "android_client_info": {
+          "package_name": "chi.devdavinchi.first_flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj_wu5DScoi561fuTnmLmXnGJzW3PrsVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
