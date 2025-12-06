@@ -1,3 +1,4 @@
+import 'package:firebase_';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,8 +11,30 @@ void main() {
   );
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +43,19 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.blue,
         title: const Text("commit for a good history lol"),
       ),
-      body: Center(
-        child: TextButton(onPressed: () async {}, child: Text("register")),
+      body: Column(
+        children: [
+          TextField(
+            controller: _email,
+            decoration: InputDecoration(hintText: "enter your email here"),
+          ),
+          TextField(
+            controller: _password,
+            decoration: InputDecoration(hintText: "enter your password here"),
+          ),
+
+          TextButton(onPressed: () async {}, child: Text("register")),
+        ],
       ),
     );
   }
