@@ -1,4 +1,4 @@
-import 'package:firebase_';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,7 +54,19 @@ class _HomePageState extends State<HomePage> {
             decoration: InputDecoration(hintText: "enter your password here"),
           ),
 
-          TextButton(onPressed: () async {}, child: Text("register")),
+          TextButton(
+            onPressed: () async {
+              final email = _email.text;
+              final password = _password.text;
+              final userCredential = await FirebaseAuth.instance
+                  .createUserWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
+              print(userCredential);
+            },
+            child: Text("register"),
+          ),
         ],
       ),
     );
