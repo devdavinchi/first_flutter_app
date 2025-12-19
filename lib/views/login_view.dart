@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import '../firebase_options.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -28,10 +32,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text("commit for a good history lol"),
-      ),
+      appBar: AppBar(backgroundColor: Colors.blue, title: const Text("Login")),
       body: FutureBuilder(
         future: Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
@@ -67,7 +68,7 @@ class _LoginViewState extends State<LoginView> {
                       final password = _password.text;
 
                       final userCredential = await FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
+                          .signInWithEmailAndPassword(
                             email: email,
                             password: password,
                           );
